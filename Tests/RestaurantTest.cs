@@ -11,6 +11,7 @@ namespace DiningList
     public void Dispose()
     {
       Restaurant.DeleteAll();
+      Cuisine.DeleteAll();
     }
 
 //TESTS
@@ -33,8 +34,8 @@ namespace DiningList
     public void Test2_Equal_ReturnsTrueIfRestaurantsAreTheSame()
     {
       //Arrange, Act
-      Restaurant firstRestaurant = new Restaurant("Burger King", "Seattle");
-      Restaurant secondRestaurant = new Restaurant("Burger King", "Seattle");
+      Restaurant firstRestaurant = new Restaurant("Burger King", "Seattle", 1);
+      Restaurant secondRestaurant = new Restaurant("Burger King", "Seattle", 1);
 
       //Assert
       Assert.Equal(firstRestaurant, secondRestaurant);
@@ -44,7 +45,7 @@ namespace DiningList
     public void Test3_Save_SavesToDatabase()
     {
       //Arrange
-      Restaurant testRestaurant = new Restaurant("Burger King", "Seattle");
+      Restaurant testRestaurant = new Restaurant("Burger King", "Seattle", 1);
 
       // Act
       testRestaurant.Save();
@@ -59,7 +60,7 @@ namespace DiningList
     public void Test4_AssignedIDTOObjects()
     {
       //Arrange, Act
-      Restaurant testRestaurant = new Restaurant("Burger King", "Seattle");
+      Restaurant testRestaurant = new Restaurant("Burger King", "Seattle", 3);
       //Act
       testRestaurant.Save();
       Restaurant saveRestaurant = Restaurant.GetAll()[0];
@@ -74,7 +75,7 @@ namespace DiningList
     public void Test5_Find_FindsRestaurantInDatabase()
     {
       //Arrange
-      Restaurant testRestaurant = new Restaurant("Burger King", "Seattle");
+      Restaurant testRestaurant = new Restaurant("Burger King", "Seattle", 1);
       testRestaurant.Save();
       //Act
       Restaurant foundRestaurant = Restaurant.Find(testRestaurant.GetId());
