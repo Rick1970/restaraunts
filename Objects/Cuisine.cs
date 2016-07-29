@@ -125,14 +125,14 @@ namespace DiningList
       SqlDataReader rdr = cmd.ExecuteReader();
 
       int foundCuisineId = 0;
-      string foundCuisineDescription = null;
+      string foundCuisineName = null;
 
       while (rdr.Read())
       {
         foundCuisineId = rdr.GetInt32(0);
-        foundCuisineDescription = rdr.GetString(1);
+        foundCuisineName = rdr.GetString(1);
       }
-      Cuisine foundCuisine = new Cuisine(foundCuisineDescription,foundCuisineId);
+      Cuisine foundCuisine = new Cuisine(foundCuisineName,foundCuisineId);
 
       if(rdr != null)
       {
@@ -163,7 +163,7 @@ namespace DiningList
        string restaurantName = rdr.GetString(1);
        string restaurantCity = rdr.GetString(2);
        int restaurantCuisineId = rdr.GetInt32(3);
-       Restaurant newRestaurant = new Restaurant(restaurantName, restaurantCity, restaurantId, restaurantCuisineId);
+       Restaurant newRestaurant = new Restaurant(restaurantName, restaurantCity,restaurantCuisineId, restaurantId);
        restaurants.Add(newRestaurant);
      }
      if (rdr != null)

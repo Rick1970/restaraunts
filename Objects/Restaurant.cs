@@ -29,7 +29,7 @@ namespace DiningList
       else
       {
         Restaurant newRestaurant = (Restaurant) otherRestaurant;
-        bool nameEquality = (this.GetName() == newRestaurant.GetName() && this.GetCity() == newRestaurant.GetCity() && this.GetId() == newRestaurant.GetId() && this.GetCuisineId() == newRestaurant.GetCuisineId());
+        bool nameEquality = (this.GetName() == newRestaurant.GetName() && this.GetCity() == newRestaurant.GetCity()&& this.GetCuisineId() == newRestaurant.GetCuisineId() && this.GetId() == newRestaurant.GetId());
         return (nameEquality);
       }
     }
@@ -80,7 +80,7 @@ namespace DiningList
         string restaurantName = rdr.GetString(1);
         string restaurantCity = rdr.GetString(2);
         int restaurantCuisineId = rdr.GetInt32(3);
-        Restaurant newRestaurant = new Restaurant(restaurantName, restaurantCity, restaurantId, restaurantCuisineId);
+        Restaurant newRestaurant = new Restaurant(restaurantName, restaurantCity, restaurantCuisineId, restaurantId);
         allRestaurants.Add(newRestaurant);
       }
 
@@ -163,7 +163,7 @@ namespace DiningList
         foundRestaurantcity = rdr.GetString(2);
         foundRestaurantCuisineId = rdr.GetInt32(3);
       }
-      Restaurant foundRestaurant = new Restaurant(foundRestaurantname, foundRestaurantcity, foundRestaurantId, foundRestaurantCuisineId);
+      Restaurant foundRestaurant = new Restaurant(foundRestaurantname, foundRestaurantcity, foundRestaurantCuisineId, foundRestaurantId);
 
       if (rdr != null)
       {
