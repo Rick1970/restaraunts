@@ -45,7 +45,7 @@ namespace DiningList
     public void Test3_Save_SavesToDatabase()
     {
       //Arrange
-      Restaurant testRestaurant = new Restaurant("Burger King", "Seattle", 1);
+      Restaurant testRestaurant = new Restaurant("Burger King", "Seattle", 0);
 
       // Act
       testRestaurant.Save();
@@ -60,7 +60,7 @@ namespace DiningList
     public void Test4_AssignedIDTOObjects()
     {
       //Arrange, Act
-      Restaurant testRestaurant = new Restaurant("Burger King", "Seattle", 3);
+      Restaurant testRestaurant = new Restaurant("Burger King", "Seattle", 1);
       //Act
       testRestaurant.Save();
       Restaurant saveRestaurant = Restaurant.GetAll()[0];
@@ -75,7 +75,7 @@ namespace DiningList
     public void Test5_Find_FindsRestaurantInDatabase()
     {
       //Arrange
-      Restaurant testRestaurant = new Restaurant("Burger King", "Seattle", 1);
+      Restaurant testRestaurant = new Restaurant("Burger King", "Seattle", 2);
       testRestaurant.Save();
       //Act
       Restaurant foundRestaurant = Restaurant.Find(testRestaurant.GetId());

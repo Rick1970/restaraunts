@@ -95,5 +95,22 @@ namespace DiningList
       //Assert
       Assert.Equal(testList, result);
     }
+    [Fact]
+    public void Test8_GetRestaurants_RetrievesAllRestaurantsWithCategory()
+    {
+      Cuisine testCuisine = new Cuisine("Sushi");
+      testCuisine.Save();
+
+      Restaurant firstRestaurant = new Restaurant("Burger King", "Seattle", testCuisine.GetId());
+      firstRestaurant.Save();
+      Restaurant secondRestaurant = new Restaurant("Trappers", "Bonney Lake", testCuisine.GetId());
+      secondRestaurant.Save();
+
+
+      List<Restaurant> testRestaurantList = new List<Restaurant> {firstRestaurant, secondRestaurant};
+      List<Restaurant> resultRestaurantList = testCuisine.GetRestaurants();
+
+      Assert.Equal(testRestaurantList, resultRestaurantList);
+    }
 }
 }

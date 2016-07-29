@@ -144,7 +144,7 @@ namespace DiningList
       }
       return foundCuisine;
     }
-    public List<Restaurant> GetTasks()
+    public List<Restaurant> GetRestaurants()
    {
      SqlConnection conn = DB.Connection();
      conn.Open();
